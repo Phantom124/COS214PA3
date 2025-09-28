@@ -16,3 +16,13 @@ void CrtlCat::saveMessage(string message,Users* fromUser){
     this->chatHistroy.push_back(&m);
     cout<<"message saved!"<<endl;
 }
+
+void CrtlCat::removeUser(Users* user){
+       for(vector<Users*>::iterator it = users.begin(); it != users.end(); ++it){
+            if(*it == user){
+            cout<<"user :"<<user->getName() <<" is leaving the room"<<endl;
+            users.erase(it);
+            break;
+            }   
+       }
+}
