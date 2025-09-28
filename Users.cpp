@@ -1,6 +1,6 @@
 #include "Users.h"
 
 
-Users::Users(string name){
+Users::Users(string name,ChatRoom room){
     this->name = name ;
 }

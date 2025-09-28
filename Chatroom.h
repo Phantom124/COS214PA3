@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 using namespace std;
 class Users;
 
@@ -13,10 +14,10 @@ class ChatRoom {
         vector<string*> chatHistory;
             
     public:
-        void registerUser(Users user);
-        void sendMessage(string message,Users fromUser);
-        void saveMessage(string message ,Users fromUser);
-        void removeUser(Users user);
+        virtual void registerUser(Users user)=0;
+        virtual void sendMessage(string message,Users fromUser)=0;
+        virtual void saveMessage(string message ,Users fromUser)=0;
+        virtual void removeUser(Users user)=0;
         
 };
 
