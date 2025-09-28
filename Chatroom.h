@@ -10,12 +10,12 @@ class ChatRoom {
 
     private:
         vector<Users*> users;
-        vector<string*> chatHistroy;
+        vector<string*> chatHistory;
             
     public:
         void registerUser(Users user);
-        void sendMessage(string message,Users fromUseer);
-        void saveMesssage(string message ,Users fromUser);
+        void sendMessage(string message,Users fromUser);
+        void saveMessage(string message ,Users fromUser);
         void removeUser(Users user);
         
 };
