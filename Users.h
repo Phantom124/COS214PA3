@@ -1,9 +1,9 @@
 #ifndef USERS_H
 #define USERS_H
 
-#include "Chatroom.h"
-#include "Command.h"
+#include "Chatroom.h" 
 
+class Command;
 
 class Users
 {
