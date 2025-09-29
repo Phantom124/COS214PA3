@@ -14,10 +14,10 @@ class ChatRoom {
         vector<string*> chatHistory;
             
     public:
-        virtual void registerUser(Users user)=0;
-        virtual void sendMessage(string message,Users fromUser)=0;
-        virtual void saveMessage(string message ,Users fromUser)=0;
-        virtual void removeUser(Users user)=0;
+        virtual void registerUser(Users* user)=0;
+        virtual void sendMessage(string message,Users* fromUser);
+        virtual void saveMessage(string message ,Users* fromUser);
+        virtual void removeUser(Users* user)=0;
         
 };
 

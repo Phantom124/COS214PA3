@@ -6,5 +6,5 @@ Users::Users(string name,ChatRoom* room){
     chatRooms.push_back(room);
 }
 string Users::getName(){
-    return name;
+    return this->name;
 }

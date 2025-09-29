@@ -5,6 +5,7 @@
 // #include "Command.h"
 class Command ;
 
+class Command;
 
 class Users
 {
@@ -17,7 +18,7 @@ class Users
         Users(string name,ChatRoom* room);
         string getName();
         virtual void send(string message,ChatRoom room)=0;
-        virtual void receive(string message,Users fromUser,ChatRoom room)=0;
+        virtual void receive(string message,Users fromUser,ChatRoom room);
         virtual void addCommand(Command command)=0;
         virtual void executeAll()=0;
     

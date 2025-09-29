@@ -1,16 +1,17 @@
-#ifndef JERRY_H 
-#define JERRY_H 
+#ifndef ADMIN_H
+#define ADMIN_H
 
 #include "Users.h"
-class jerry:protected Users{
-
+class admin:protected Users
+{
     public:
-        jerry(string name,ChatRoom* room);
+        admin(string name,ChatRoom* room);
         void send(string message,ChatRoom* room);
         void receive(string message,Users* fromUser,ChatRoom* room);
         void addCommand(Command* command);
         void executeAll();
-
+   
 };
 
-#endif
+
+#endif //ADMIN_H
