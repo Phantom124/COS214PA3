@@ -14,7 +14,7 @@ class Users
         vector<Command*> commandQueue ;
       
     public: 
-        Users(string name,ChatRoom room);
+        Users(string name,ChatRoom* room);
         string getName();
         virtual void send(string message,ChatRoom room)=0;
         virtual void receive(string message,Users fromUser,ChatRoom room)=0;
