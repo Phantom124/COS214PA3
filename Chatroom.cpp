@@ -4,7 +4,7 @@
 void ChatRoom::sendMessage(string message, Users *fromUser){
     
     for (std::vector<Users*>::iterator it = users.begin(); it < users.end(); it++){
-        (*it)->receive(message, *fromUser, *this);
+        (*it)->receive(message, fromUser, this);
     }
 }
 

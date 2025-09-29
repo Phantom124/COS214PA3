@@ -16,10 +16,11 @@ class Users
       
     public: 
         Users(string name,ChatRoom* room);
+        virtual ~Users()= default;
         string getName();
-        virtual void send(string message,ChatRoom room)=0;
-        virtual void receive(string message,Users fromUser,ChatRoom room);
-        virtual void addCommand(Command command)=0;
+        virtual void send(string message,ChatRoom* room)=0;
+        virtual void receive(string message,Users* fromUser,ChatRoom* room)=0;
+        virtual void addCommand(Command* command)=0;
         virtual void executeAll()=0;
     
 };
