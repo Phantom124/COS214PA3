@@ -6,9 +6,9 @@
 class UserIterator : public Iterator {
     private:
         int currPos;
-        UserVector* vector;
+        UserVector* vec;
     public:
-        UserIterator(UserVector* vector, const int currPos = 0);
+        UserIterator(UserVector* vec, const int currPos = 0);
         ~UserIterator();
         virtual void addUser(Users* u);
         virtual void removeUser(Users* u);

@@ -7,9 +7,9 @@
 class MessageIterator : public Iterator {
     private:
         int currPos;
-        MessageVector* vector;
+        MessageVector* vec;
     public:
-        MessageIterator(MessageVector* vector, const int currPos = 0);
+        MessageIterator(MessageVector* vec, const int currPos = 0);
         ~MessageIterator();
         virtual void addMessage(string* u);
         virtual void removeMessage(string* u);

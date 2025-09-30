@@ -9,15 +9,15 @@
 
 /**
  * @brief Construct a new MessageIterator.
- * @param vector Backing aggregate.
+ * @param vec Backing aggregate.
  * @param currPos Initial position within the vector.
  */
-MessageIterator::MessageIterator(MessageVector *vector, const int currPos){
-    this->vector = vector;
+MessageIterator::MessageIterator(MessageVector* vector, const int currPos){
+    this->vec = vector;
     this->currPos = currPos;
 }
 
-/**
+/** 
  * @brief Destroy the MessageIterator object.
  */
 MessageIterator::~MessageIterator(){
@@ -29,7 +29,7 @@ MessageIterator::~MessageIterator(){
  * @param u Pointer to message string (ownership transferred to aggregate).
  */
 void MessageIterator::addMessage(string *u){
-    vector->msgs.push_back(u);
+    vec->msgs.push_back(u);
 }
 
 /**
@@ -37,9 +37,9 @@ void MessageIterator::addMessage(string *u){
  * @param u Pointer to message string to remove.
  */
 void MessageIterator::removeMessage(string *u){
-    for (std::vector<string*>::iterator it = vector->msgs.begin(); it < vector->msgs.end(); it++){
+    for (std::vector<string*>::iterator it = vec->msgs.begin(); it < vec->msgs.end(); it++){
         if (u == (*it)){
-            vector->msgs.erase(it);
+            vec->msgs.erase(it);
         } 
     }
 }
@@ -49,11 +49,11 @@ void MessageIterator::removeMessage(string *u){
  * @return string* Pointer to first message, or nullptr if empty.
  */
 string* MessageIterator::first(){
-    if (vector->msgs.size() <= 0){
+    if (vec->msgs.size() <= 0){
         return nullptr;
     }
     this->currPos = 0;
-    return vector->msgs[0];
+    return vec->msgs[0];
 }
 
 /**
@@ -62,10 +62,10 @@ string* MessageIterator::first(){
  */
 string *MessageIterator::next(){
     this->currPos++;
-    if (vector->msgs.size() <= this->currPos){
+    if (vec->msgs.size() <= this->currPos){
         return nullptr;
     }
-    return vector->msgs[this->currPos];
+    return vec->msgs[this->currPos];
 }
 
 /**
@@ -73,7 +73,7 @@ string *MessageIterator::next(){
  * @return true when no more messages remain; false otherwise.
  */
 bool MessageIterator::isDone(){
-    return (vector->msgs.size() <= this->currPos);
+    return (vec->msgs.size() <= this->currPos);
 }
 
 /**
@@ -81,10 +81,10 @@ bool MessageIterator::isDone(){
  * @return string* Pointer to current message, or nullptr if invalid position.
  */
 string* MessageIterator::currentItem(){
-    if (vector->msgs.size() > 0 && this->currPos){
+    if (vec->msgs.size() > 0 && this->currPos){
         return nullptr;
     }
-    return vector->msgs[this->currPos];
+    return vec->msgs[this->currPos];
 }
 
 #endif

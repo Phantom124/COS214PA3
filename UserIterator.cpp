@@ -17,11 +17,11 @@ using namespace std;
 
 /**
  * @brief Construct a new UserIterator.
- * @param vector Pointer to the underlying `UserVector` aggregate.
+ * @param vec Pointer to the underlying `UserVector` aggregate.
  * @param currPos Starting position in the aggregate (default 0).
  */
 UserIterator::UserIterator(UserVector* vector, const int currPos = 0){
-    this->vector = vector;
+    this->vec = vector;
     this->currPos = currPos;
 }
 
@@ -39,14 +39,14 @@ UserIterator::~UserIterator(){
 void UserIterator::addUser(Users* u){
     string newName = u->getName();
 
-    for (std::vector<Users*>::iterator it = vector->userVec.begin(); it < vector->userVec.end(); it++){
+    for (std::vector<Users*>::iterator it = vec->userVec.begin(); it < vec->userVec.end(); it++){
         if (u->getName() == (*it)->getName()){
             cout << "Please enter a different username. That one already exists." << endl;
             return;
         }
     }
 
-    vector->userVec.push_back(u);
+    vec->userVec.push_back(u);
 }
 
 /**
@@ -54,9 +54,9 @@ void UserIterator::addUser(Users* u){
  * @param u Pointer to the user to remove.
  */
 void UserIterator::removeUser(Users* u){
-    for (std::vector<Users*>::iterator it = vector->userVec.begin(); it < vector->userVec.end(); it++){
+    for (std::vector<Users*>::iterator it = vec->userVec.begin(); it < vec->userVec.end(); it++){
         if (u == *it){
-            vector->userVec.erase(it);
+            vec->userVec.erase(it);
         } 
     }
 }
@@ -66,9 +66,9 @@ void UserIterator::removeUser(Users* u){
  * @param name The username to match when removing.
  */
 void UserIterator::removeUser(string name){
-    for (std::vector<Users*>::iterator it = vector->userVec.begin(); it < vector->userVec.end(); it++){
+    for (std::vector<Users*>::iterator it = vec->userVec.begin(); it < vec->userVec.end(); it++){
         if (name == (*it)->getName()){
-            vector->userVec.erase(it);
+            vec->userVec.erase(it);
         } 
     }
 }
@@ -78,11 +78,11 @@ void UserIterator::removeUser(string name){
  * @return Users* Pointer to the first user, or nullptr if empty.
  */
 Users* UserIterator::first(){
-    if (vector->userVec.size() <= 0){
+    if (vec->userVec.size() <= 0){
         return nullptr;
     }
     this->currPos = 0;
-    return vector->userVec[0];
+    return vec->userVec[0];
 }
 
 /**
@@ -91,10 +91,10 @@ Users* UserIterator::first(){
  */
 Users *UserIterator::next(){
     this->currPos++;
-    if (vector->userVec.size() <= this->currPos){
+    if (vec->userVec.size() <= this->currPos){
         return nullptr;
     }
-    return vector->userVec[this->currPos];
+    return vec->userVec[this->currPos];
 }
 
 /**
@@ -102,7 +102,7 @@ Users *UserIterator::next(){
  * @return true if there are no more items to iterate; false otherwise.
  */
 bool UserIterator::isDone(){
-    return (vector->userVec.size() <= this->currPos);
+    return (vec->userVec.size() <= this->currPos);
 }
 
 /**
@@ -110,10 +110,10 @@ bool UserIterator::isDone(){
  * @return Users* Pointer to the current user, or nullptr if out of bounds.
  */
 Users* UserIterator::currentItem(){
-    if (vector->userVec.size() > 0 && this->currPos){
+    if (vec->userVec.size() > 0 && this->currPos){
         return nullptr;
     }
-    return vector->userVec[this->currPos];
+    return vec->userVec[this->currPos];
 }
 
 #endif
