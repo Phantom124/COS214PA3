@@ -3,6 +3,8 @@
  * @brief Concrete ChatRoom variant implementing Dogorithm behavior.
  */
 #include "dogorithm.h"
+#include "UserIterator.h"
+#include "MessageIterator.h"
 
 #include "Users.h"
 

@@ -4,6 +4,8 @@
  */
 #include "CrtlCat.h"
 #include "Users.h"
+#include "UserIterator.h"
+#include "MessageIterator.h"
 
 /**
  * @brief Register a new user in the room using the iterator helper.
