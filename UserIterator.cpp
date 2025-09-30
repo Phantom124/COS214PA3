@@ -40,7 +40,15 @@ void UserIterator::removeUser(Users* u){
     for (std::vector<Users*>::iterator it = vector->userVec.begin(); it < vector->userVec.end(); it++){
         if (u == *it){
             vector->userVec.erase(it);
-        }
+        } 
+    }
+}
+
+void UserIterator::removeUser(string name){
+    for (std::vector<Users*>::iterator it = vector->userVec.begin(); it < vector->userVec.end(); it++){
+        if (name == (*it)->getName()){
+            vector->userVec.erase(it);
+        } 
     }
 }
 
