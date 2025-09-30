@@ -2,6 +2,10 @@
  * @file LogMessageCommand.cpp
  * @brief Command object that persists a message to the room history.
  */
+
+#ifndef LOG_MESSAGE_COMMAND_CPP
+#define LOG_MESSAGE_COMMAND_CPP
+
 #include "LogMessageCommand.h"
 
 /**
@@ -18,3 +22,5 @@ LogMessageCommand::LogMessageCommand(ChatRoom* room, string message, Users* from
 void LogMessageCommand::execute(){
     room->saveMessage(message, fromUser);
 }
+
+#endif

@@ -20,7 +20,8 @@ using namespace std;
  * @param vec Pointer to the underlying `UserVector` aggregate.
  * @param currPos Starting position in the aggregate (default 0).
  */
-UserIterator::UserIterator(UserVector* vector, const int currPos = 0){
+UserIterator::UserIterator(UserVector* vector, const int currPos){
+    cout << "In UserIterator constructor " << endl;
     this->vec = vector;
     this->currPos = currPos;
 }

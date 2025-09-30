@@ -2,6 +2,10 @@
  * @file admin.cpp
  * @brief Concrete Users implementation representing an admin participant.
  */
+
+#ifndef ADMIN_CPP
+#define ADMIN_CPP
+
 #include "admin.h"
 #include "Command.h"
 #include "SendMessageCommand.h"
@@ -73,3 +77,4 @@ void admin::executeAll(){
     }
 }
 
+#endif

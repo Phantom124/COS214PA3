@@ -4,9 +4,11 @@
 #include <vector>
 #include <string>
 #include "Aggregate.h"
-#include "MessageIterator.h"
 
 using namespace std;
+
+class Iterator;
+class MessageIterator;
 
 class MessageVector : public Aggregate {
     friend class MessageIterator;
@@ -16,7 +18,5 @@ class MessageVector : public Aggregate {
         ~MessageVector();
         virtual Iterator* createIterator();
 };
-
-#include "MessageVector.cpp"
 
 #endif 

@@ -5,7 +5,7 @@
 
 class Vector {
 
-    virtual Iterator* createIterator(); 
+    virtual Iterator* createIterator() = 0; 
 
 };
 

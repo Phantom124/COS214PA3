@@ -3,8 +3,11 @@
 
 #include <vector>
 #include "Aggregate.h"
-#include "Users.h"
-#include "UserIterator.h"
+// #include "Users.h"
+// #include "UserIterator.h"
+
+class Users;
+class Iterator;
 
 using namespace std;
 
@@ -16,7 +19,5 @@ class UserVector : public Aggregate {
         ~UserVector();
         virtual Iterator* createIterator();
 };
-
-#include "UserVector.cpp"
 
 #endif

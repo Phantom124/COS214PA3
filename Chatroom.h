@@ -9,6 +9,7 @@ using namespace std;
 class Users;
 class UserVector;
 class MessageVector;
+class Iterator;
 
 class ChatRoom {
 

@@ -2,9 +2,15 @@
  * @file CrtlCat.cpp
  * @brief Concrete ChatRoom implementation named CrtlCat.
  */
+
+#ifndef CTRL_CAT_CPP
+#define CTRL_CAT_CPP
+
 #include "CrtlCat.h"
 #include "Users.h"
+#include "UserVector.h"
 #include "UserIterator.h"
+#include "MessageVector.h"
 #include "MessageIterator.h"
 
 /**
@@ -12,10 +18,17 @@
  */
 void CrtlCat::registerUser(Users* user){
     // this->users.push_back(users);
-    this->users->createIterator();
+    cout << "Is it even getting here in regUser" << endl;
+
     UserIterator* userIt = dynamic_cast<UserIterator*>(users->createIterator());
+    cout << "In register user 2\n"; 
+
     userIt->addUser(user);
+    cout << "In register user 3\n"; 
+
     delete userIt;
+
+    cout << "In register user 4\n"; 
     cout<<user->getName() <<" has join the roomC"<<endl;
 }
 
@@ -56,3 +69,5 @@ void CrtlCat::removeUser(Users* user){
     cout<<"user :"<<user->getName() <<" is leaving the room"<<endl;
     delete userIt;
 }
+
+#endif

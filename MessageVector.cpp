@@ -20,9 +20,9 @@ MessageVector::~MessageVector(){
 /**
  * @brief Create a new iterator for traversing messages.
  */
-Iterator *MessageVector::createIterator()
-{
-    return new MessageIterator(this, 0);
+Iterator *MessageVector::createIterator(){
+    Iterator* it = new MessageIterator(this, 0);
+    return it;
 }
 
 #endif 

@@ -3,6 +3,9 @@
 
 #include "Iterator.h"
 
+class Users;
+class UserVector;
+
 class UserIterator : public Iterator {
     private:
         int currPos;
@@ -19,6 +22,5 @@ class UserIterator : public Iterator {
         virtual Users* currentItem();
 };
 
-#include "UserIterator.cpp"
 
 #endif

@@ -6,6 +6,9 @@
 #define MESSAGE_ITERATOR_CPP
 
 #include "MessageIterator.h"
+#include "MessageVector.h"
+#include "UserVector.h"
+#include "UserIterator.h"
 
 /**
  * @brief Construct a new MessageIterator.

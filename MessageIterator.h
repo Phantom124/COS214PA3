@@ -2,7 +2,10 @@
 #define MESSAGE_ITERATOR_H
 
 #include "Iterator.h"
-#include "MessageVector.h"
+#include <string>
+using namespace std;
+
+class MessageVector;
 
 class MessageIterator : public Iterator {
     private:

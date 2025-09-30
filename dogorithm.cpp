@@ -2,9 +2,14 @@
  * @file dogorithm.cpp
  * @brief Concrete ChatRoom variant implementing Dogorithm behavior.
  */
+
+#ifndef DOGORITHM_CPP
+#define DOGORITHM_CPP
 #include "dogorithm.h"
 #include "UserIterator.h"
+#include "UserVector.h"
 #include "MessageIterator.h"
+#include "MessageVector.h"
 
 #include "Users.h"
 
@@ -50,6 +55,9 @@ void Dogorithm::saveMessage(string message,Users* fromUser){
 void Dogorithm::removeUser(Users* user){
     this->users->createIterator();
     UserIterator* userIt = dynamic_cast<UserIterator*>(users->createIterator());
+    cout<<"user :"<<user->getName() <<" is leaving the room"<<endl;
     userIt->removeUser(user);
     delete userIt;
 }
+
+#endif

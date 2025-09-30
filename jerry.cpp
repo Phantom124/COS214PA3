@@ -2,6 +2,9 @@
  * @file jerry.cpp
  * @brief Concrete Users implementation representing a normal participant.
  */
+#ifndef JERRY_CPP
+#define JERRY_CPP
+
 #include "jerry.h"
 #include "Command.h"
 #include "SendMessageCommand.h"
@@ -81,3 +84,5 @@ void jerry::executeAll(){
         (*it)->execute();
     }
 }
+
+#endif

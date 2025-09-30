@@ -23,7 +23,11 @@ UserVector::~UserVector(){
  * @return Iterator* Newly allocated iterator positioned at 0.
  */
 Iterator *UserVector::createIterator(){
-    return new UserIterator(this, 0);
+    cout << "Is it even getting here? -- 1" << endl;
+    Iterator* it = new UserIterator(this, 0);
+    cout << "Is it even getting here? -- 2" << endl;
+
+    return it;
 }
 
 #endif

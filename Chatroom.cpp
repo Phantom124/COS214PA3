@@ -2,8 +2,15 @@
  * @file Chatroom.cpp
  * @brief Default ChatRoom method implementations for broadcasting and saving messages.
  */
+
+ #ifndef CHATROOM_CPP
+ #define CHATROOM_CPP
 #include "Chatroom.h"
 #include "Users.h"
+#include "UserIterator.h"
+#include "UserVector.h"
+#include "MessageVector.h"
+#include "MessageIterator.h"
 
 /**
  * @brief Broadcast a message to all registered users via the iterator.
@@ -39,3 +46,4 @@ void ChatRoom::saveMessage(string message, Users* fromUser){
     mIt->addMessage(msgPointer);
     delete mIt;
 }
+#endif
