@@ -1,3 +1,7 @@
+/**
+ * @file main.cpp
+ * @brief Simple demonstration of the chat system wiring commands, users, and rooms.
+ */
 #include "Chatroom.h"
 #include "admin.h"
 #include "Command.h"
@@ -9,6 +13,9 @@
 #include "CrtlCat.h"
 
 
+/**
+ * @brief Program entry point.
+ */
 int main(){
     ChatRoom* room = new CrtlCat();
     Users* ede = new jerry("ede",room);

@@ -1,9 +1,16 @@
+/**
+ * @file UserVector.cpp
+ * @brief Concrete aggregate storing Users and creating UserIterator instances.
+ */
 #ifndef USER_VECTOR_CPP
 #define USER_VECTOR_CPP 
 
 #include "UserVector.h"
 #include "UserIterator.h"
 
+/**
+ * @brief Destroy the UserVector and release owned Users.
+ */
 UserVector::~UserVector(){
     for (std::vector<Users*>::iterator it = userVec.begin(); it < userVec.end(); it++){
         delete (*it);
@@ -11,6 +18,10 @@ UserVector::~UserVector(){
 
 }
 
+/**
+ * @brief Create a new iterator for this aggregate.
+ * @return Iterator* Newly allocated iterator positioned at 0.
+ */
 Iterator *UserVector::createIterator(){
     return new UserIterator(this, 0);
 }
