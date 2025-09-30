@@ -18,6 +18,7 @@ class Users
         void receive(string message,Users fromUser,ChatRoom room);
         void addCommand(Command command);
         void executeAll();
+        string getName();
     
 };
 

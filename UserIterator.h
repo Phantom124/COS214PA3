@@ -3,7 +3,7 @@
 
 #include "Aggregate.h"
 
-class UserIterator : public Aggregate {
+class UserIterator : public Iterator {
     private:
         int currPos;
         UserVector* vector;
@@ -12,9 +12,9 @@ class UserIterator : public Aggregate {
         ~UserIterator();
         virtual void addUser(Users* u);
         virtual void removeUser(Users* u);
-        virtual void first();
-        virtual void next();
-        virtual void isDone();
+        virtual Users* first();
+        virtual Users* next();
+        virtual bool isDone();
         virtual Users* currentItem();
 };
 

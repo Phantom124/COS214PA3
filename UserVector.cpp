@@ -5,7 +5,7 @@
 #include "UserIterator.h"
 
 Iterator *UserVector::createIterator(){
-    return new UserIterator();
+    return new UserIterator(this, 0);
 }
 
 #endif
