@@ -13,12 +13,13 @@ class Users
         vector<Command*> commandQueue ;
       
     public: 
-        Users(string name);
-        void send(string message,ChatRoom room);
-        void receive(string message,Users fromUser,ChatRoom room);
-        void addCommand(Command command);
-        void executeAll();
+        Users(string name,ChatRoom* room);
+        virtual ~Users()= default;
         string getName();
+        virtual void send(string message,ChatRoom* room)=0;
+        virtual void receive(string message,Users* fromUser,ChatRoom* room)=0;
+        virtual void addCommand(Command* command)=0;
+        virtual void executeAll()=0;
     
 };
 

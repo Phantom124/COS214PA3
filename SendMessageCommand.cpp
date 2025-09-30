@@ -7,7 +7,7 @@ SendMessageCommand::SendMessageCommand(ChatRoom* room, string message, Users* fr
     : Command(room, message, fromUser){}
 
 void SendMessageCommand::execute(){
-    room->sendMessage(message, *fromUser);   
+    room->sendMessage(message, fromUser);   
 }
 
 #endif

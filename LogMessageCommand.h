@@ -5,6 +5,7 @@
 
 class LogMessageCommand : public Command {
     public: 
+        LogMessageCommand(ChatRoom* room, string message, Users* fromUser);
         virtual void execute();
 };
 
