@@ -8,8 +8,6 @@
 
 #include "admin.h"
 #include "Command.h"
-#include "SendMessageCommand.h"
-#include "LogMessageCommand.h"
 
 /**
  * @brief Construct a new admin user.
@@ -19,39 +17,16 @@ admin::admin(string name,ChatRoom* room):Users(name,room){}
  * @brief Send a message to a room via command execution.
  */
 void admin::send(string message,ChatRoom* room){
-    Command* executer;
-    bool flag = false ;
-    for(vector<Command*>::iterator it = commandQueue.begin();it != commandQueue.end();++it){
-         if(*it==(new SendMessageCommand(room,message,this))){
-            executer = *it;
-            flag = true ;
-            break;
-        }
-    }
-    if(flag == true){
-        executer->execute();
-    }
-    executer = new SendMessageCommand(room,message,this);
-    executer->execute();
+    strat->handleMessage(message,this,room);
+}
+void admin::setStrat(strategy* s){
+    this->strat = s;
 }
 /**
  * @brief Receive a message and log it.
  */
 void admin::receive(string message,Users* fromUser,ChatRoom* room){
-    Command* executer ;
-    bool flag = false;
-    for(vector<Command*>::iterator it = commandQueue.begin() ;it != commandQueue.end();it++ ){
-        if(*it==(new LogMessageCommand(room,message,this))){
-            executer = *it;
-            flag =true ;
-            break;
-        }
-    }
-    if(flag == true){
-        executer->execute();
-    }
-    executer=new LogMessageCommand(room,message,this);
-    executer->execute();
+    strat->handleMessage(message,this,room);
 
 }
 

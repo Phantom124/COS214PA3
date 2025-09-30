@@ -3,7 +3,7 @@
  * @brief Strategy that sends a message using the SendMessageCommand.
  */
 #include "sendMessageStrat.h"
-
+#include "SendMessageCommand.h"
 /**
  * @brief Handle a message by dispatching a SendMessageCommand.
  */

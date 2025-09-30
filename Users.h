@@ -2,7 +2,8 @@
 #define USERS_H
 
 #include "Chatroom.h" 
-
+#include "strategy.h"
+class strategy;
 class Command;
 
 class Users
@@ -11,6 +12,8 @@ class Users
         vector<ChatRoom*> chatRooms;
         string name;
         vector<Command*> commandQueue ;
+        strategy* strat;
+
       
     public: 
         Users(string name,ChatRoom* room);

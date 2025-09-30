@@ -6,6 +6,7 @@ class admin:public Users
 {
     public:
         admin(string name,ChatRoom* room);
+        void setStrat(strategy* s);
         void send(string message,ChatRoom* room);
         void receive(string message,Users* fromUser,ChatRoom* room);
         void addCommand(Command* command);

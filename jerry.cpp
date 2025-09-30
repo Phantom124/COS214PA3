@@ -7,8 +7,7 @@
 
 #include "jerry.h"
 #include "Command.h"
-#include "SendMessageCommand.h"
-#include "LogMessageCommand.h"
+
 
 
 /**
@@ -24,23 +23,15 @@ jerry::jerry(string name,ChatRoom* room):Users(name,room){}
  * @param room Target chat room.
  */
 void jerry::send(string message,ChatRoom* room){
-    Command* executer ;
-    bool flag = false;
-    for(vector<Command*>::iterator it = commandQueue.begin() ;it != commandQueue.end();it++ ){
-        if(*it==(new SendMessageCommand(room,message,this))){
-            executer = *it;
-            flag = true;
-            break;
-        }
-    }
-    // room.sendMessage(message,this);//or is this done in the command ??
-    // executer->execute();
-    if(flag == true){
-        executer->execute();
-    }
-    executer = new SendMessageCommand(room,message,this);
-    executer->execute();
+    strat->handleMessage(message,this,room);
     
+}
+/**
+ * @brief sets the stratey for sending messages 
+ * @param strategy
+ */
+void jerry::setStrat(strategy* s){
+    this->strat = s;
 }
 /**
  * @brief Receive a message and log it via command execution.
@@ -49,24 +40,7 @@ void jerry::send(string message,ChatRoom* room){
  * @param room Originating chat room.
  */
 void jerry::receive(string message,Users* fromUser,ChatRoom* room){
-    // string* ptr = new string(message);
-    // room->saveMessage(message,fromUser);
-     Command* executer ;
-      bool flag = false ;
-    for(vector<Command*>::iterator it = commandQueue.begin() ;it != commandQueue.end();it++ ){
-        if(*it==(new LogMessageCommand(room,message,this))){
-            executer = *it;
-            flag=true;
-            break;
-        }
-    }
-    // room.sendMessage(message,this);//or is this done in the command ??
-    if(flag == true){
-        executer->execute();
-    }
-    executer = new LogMessageCommand(room,message,this);
-    executer->execute();
-    // executer->execute();
+    strat->handleMessage(message,this,room);
 }
 /**
  * @brief Queue a command for later execution.

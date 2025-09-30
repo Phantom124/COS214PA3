@@ -7,6 +7,7 @@
 #define LOG_STRAT_CPP
 
 #include "Logstrategy.h"
+#include "LogMessageCommand.h"
 
 /**
  * @brief Handle an incoming message by logging it via LogMessageCommand.
