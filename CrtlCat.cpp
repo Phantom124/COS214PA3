@@ -1,9 +1,13 @@
 #include "CrtlCat.h"
 #include "Users.h"
 
-void CrtlCat::registerUser(Users* users){
-    this->users.push_back(users);
-    cout<<users->getName() <<" has join the roomC"<<endl;
+void CrtlCat::registerUser(Users* user){
+    // this->users.push_back(users);
+    this->users->createIterator();
+    UserIterator* userIt = dynamic_cast<UserIterator*>(users->createIterator());
+    userIt->addUser(user);
+    delete userIt;
+    cout<<user->getName() <<" has join the roomC"<<endl;
 }
 
 void CrtlCat::sendMessage(string message,Users* fromUser){ 
@@ -12,17 +16,25 @@ void CrtlCat::sendMessage(string message,Users* fromUser){
 
 }
 void CrtlCat::saveMessage(string message,Users* fromUser){
-    string m = fromUser->getName()+ message;
-    this->chatHistory.push_back(&m);
+    string* m = new string(fromUser->getName()+ message);
+    
+    MessageIterator* mIt = dynamic_cast<MessageIterator*>(chatHistory->createIterator());
+    mIt->addMessage(m);
+    delete mIt;
+
     cout<<"message saved!"<<endl;
 }
 
 void CrtlCat::removeUser(Users* user){
-       for(vector<Users*>::iterator it = users.begin(); it != users.end(); ++it){
-            if(*it == user){
-            cout<<"user :"<<user->getName() <<" is leaving the room"<<endl;
-            users.erase(it);
-            break;
-            }   
-       }
+//    for(vector<Users*>::iterator it = users.begin(); it != users.end(); ++it){
+//         if(*it == user){
+//         users.erase(it);
+//         break;
+//         }   
+//    }
+
+    UserIterator* userIt = dynamic_cast<UserIterator*>(users->createIterator());
+    userIt->removeUser(user);
+    cout<<"user :"<<user->getName() <<" is leaving the room"<<endl;
+    delete userIt;
 }

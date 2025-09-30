@@ -3,10 +3,6 @@
 
 #include "Chatroom.h"
 class Dogorithm:public ChatRoom{
-     private:
-        vector<Users*> users;
-        vector<string*> chatHistory;
-            
     public:
         void registerUser(Users* user);
         void sendMessage(string message,Users* fromUser);

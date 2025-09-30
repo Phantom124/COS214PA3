@@ -12,7 +12,7 @@ class Users;
 
 class ChatRoom {
 
-    private:
+    protected:
         // vector<Users*> users;
         // vector<string*> chatHistory;
         UserVector* users;

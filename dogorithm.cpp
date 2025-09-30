@@ -3,7 +3,10 @@
 #include "Users.h"
 
 void Dogorithm::registerUser(Users* users){
-    this->users.push_back(users);
+    this->users->createIterator();
+    UserIterator* userIt = dynamic_cast<UserIterator*>(this->users->createIterator());
+    userIt->addUser(users);
+    delete userIt;
     cout<<users->getName() <<" has join the roomD"<<endl;
 }
 
@@ -13,17 +16,16 @@ void Dogorithm::sendMessage(string message,Users* fromUser){
 
 }
 void Dogorithm::saveMessage(string message,Users* fromUser){
-    string m = fromUser->getName()+ message;
-    this->chatHistory.push_back(&m);
+    string* m = new string(fromUser->getName()+ message);
+    MessageIterator* mIt = dynamic_cast<MessageIterator*>(this->chatHistory->createIterator());
+    mIt->addMessage(m);
+    delete mIt;
     cout<<"message saved!"<<endl;
 }
 
 void Dogorithm::removeUser(Users* user){
-       for(vector<Users*>::iterator it = users.begin(); it != users.end(); ++it){
-            if(*it == user){
-            cout<<"user :"<<user->getName() <<" is leaving the room"<<endl;
-            users.erase(it);
-            break;
-            }   
-       }
+    this->users->createIterator();
+    UserIterator* userIt = dynamic_cast<UserIterator*>(users->createIterator());
+    userIt->removeUser(user);
+    delete userIt;
 }

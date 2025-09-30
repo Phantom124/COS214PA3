@@ -7,8 +7,8 @@
 
 class CrtlCat : public ChatRoom{
     private:
-        vector<Users*> users;
-        vector<string*> chatHistory;
+        // vector<Users*> users;
+        // vector<string*> chatHistory;
             
     public:
         void registerUser(Users* user);
