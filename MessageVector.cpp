@@ -4,7 +4,14 @@
 #include "MessageVector.h"
 #include "MessageIterator.h"
 
-Iterator* MessageVector::createIterator(){
+MessageVector::~MessageVector(){
+    for (std::vector<string*>::iterator it = msgs.begin(); it < msgs.end(); it++){
+        delete (*it);
+    }
+}
+
+Iterator *MessageVector::createIterator()
+{
     return new MessageIterator(this, 0);
 }
 

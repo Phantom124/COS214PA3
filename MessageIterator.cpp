@@ -9,9 +9,7 @@ MessageIterator::MessageIterator(MessageVector *vector, const int currPos){
 }
 
 MessageIterator::~MessageIterator(){
-    for (std::vector<string*>::iterator it = vector->msgs.begin(); it < vector->msgs.end(); it++){
-        delete (*it);
-    }
+    
 }
 
 void MessageIterator::addMessage(string *u){

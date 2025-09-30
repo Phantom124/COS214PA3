@@ -15,12 +15,6 @@ UserIterator::UserIterator(UserVector* vector, const int currPos = 0){
 
 UserIterator::~UserIterator(){
 
-    for (std::vector<Users*>::iterator it = vector->userVec.begin(); it < vector->userVec.end(); it++){
-        delete (*it);
-    }
-
-    //Leaving the deallocation of pointer to UserVector to whatever client is using it
-
 }
 
 void UserIterator::addUser(Users* u){

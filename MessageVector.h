@@ -13,6 +13,7 @@ class MessageVector : public Aggregate {
     private:
         vector<string*> msgs;
     public:
+        ~MessageVector();
         virtual Iterator* createIterator();
 };
 

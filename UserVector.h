@@ -13,6 +13,7 @@ class UserVector : public Aggregate {
     private:
         vector<Users*> userVec;
     public:
+        ~UserVector();
         virtual Iterator* createIterator();
 };
 
