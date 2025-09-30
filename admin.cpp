@@ -41,6 +41,9 @@ void admin::receive(string message,Users* fromUser,ChatRoom* room){
 void admin::addCommand(Command* command){
     commandQueue.push_back(command);
 }
+void admin::removeUser(Users* toRemove,ChatRoom* room){
+    room->removeUser(toRemove);
+}
 
 void admin::executeAll(){
     for(vector<Command*>::iterator it = commandQueue.begin() ; it != commandQueue.end();++it){

@@ -9,6 +9,6 @@
 class strategy
 {
     public:
-        void handleMessage();
+        virtual void handleMessage(string message,Users* fromUsers,ChatRoom* room)=0;
 };
 #endif //STRATEGY
